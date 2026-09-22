@@ -1,0 +1,15 @@
+api jeton: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNmMyZGE0YjczOGZjZjMzYzU1NjY5ZjM5MWNiOTEwYiIsIm5iZiI6MTc5MDA3ODgzMi41NTIsInN1YiI6IjZhYjI2ZjcwMjE2MjFiMjI0MjkxNjg5YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.N5v0FmmHUsbCWOsRyauH9Y94rjwlh5LmRYXrEV1ddbs
+
+api key: b6c2da4b738fcf33c55669f391cb910b
+
+curl --request GET \
+--url https://api.themoviedb.org/3/authentication \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNmMyZGE0YjczOGZjZjMzYzU1NjY5ZjM5MWNiOTEwYiIsIm5iZiI6MTc5MDA3ODgzMi41NTIsInN1YiI6IjZhYjI2ZjcwMjE2MjFiMjI0MjkxNjg5YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.N5v0FmmHUsbCWOsRyauH9Y94rjwlh5LmRYXrEV1ddbs' \
+--header 'accept: application/json'
+
+--discover-movies
+https://api.themoviedb.org/3/keyword/{keyword_id}/movies
+
+Use /discover/movie with with_keywords instead.
+
+https://api.themoviedb.org/3/discover/movie
