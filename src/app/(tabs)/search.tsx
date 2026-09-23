@@ -6,6 +6,7 @@ import useFetch from "@/services/useFetch";
 import {icons} from "../../../constants/icons";
 import {useEffect, useState} from "react";
 import SearchBar from "../../components/searchbar";
+import {updateSearchCount} from "@/services/appwrite";
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -26,10 +27,14 @@ const Search = () => {
             async () => {
                 if (searchQuery.trim()) {
                     await loadMovies()
+                    // Call updateSearchCount only if there are results
+                    if (movies?.length! > 0 && movies?.[0]) {
+                        await updateSearchCount(searchQuery, movies[0]);
+                    }
                 } else {
                     reset();
                 }
-            }, 300)
+            }, 500)
         return () => clearTimeout(timeoutId);
     }, [searchQuery]);
 
