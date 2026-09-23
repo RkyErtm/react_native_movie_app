@@ -13,7 +13,7 @@ export default function Index() {
 
     const {
         data: movies,
-        loading: moviesLoding,
+        loading: moviesLoading,
         error: moviesError
     } = useFetch(() => {
         return fetchMovies({query: ''});
@@ -29,7 +29,7 @@ export default function Index() {
             }}>
                 <Image source={icons.logo} className={"w-12 h-10 mt-20 mb-5 mx-auto "}/>
 
-                {moviesLoding ? (
+                {moviesLoading ? (
                     <ActivityIndicator
                         size={"large"}
                         color={"#0000ff"}
