@@ -15,11 +15,12 @@ const Search = () => {
         data: movies,
         loading,
         error,
-        refetch: loadMovies,
+        refetch: loadMovies, //İsteği manuel tetikleme fonksiyonu
         reset
     } = useFetch(() => fetchMovies({
         query: searchQuery
-    }), false);
+    }), false // <--- DİKKAT: Sayfa açılır açılmaz istek ATMA demek!
+    );
 
     // Debounced search effect
     useEffect(() => {
@@ -35,7 +36,7 @@ const Search = () => {
                     reset();
                 }
             }, 500)
-        return () => clearTimeout(timeoutId);
+        return () => clearTimeout(timeoutId); //Kullanıcı 500ms dolmadan yeni bir harfe basarsa eski zamanlayıcıyı çöpe atar ve süreyi baştan başlatır.
     }, [searchQuery]);
 
     return (
